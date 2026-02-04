@@ -1,14 +1,20 @@
+import br.com.alura.java2.calculos.CalculadoraDeTempo;
 import br.com.alura.java2.modelos.Filme;
 import br.com.alura.java2.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
         Filme filme1 = new Filme();
+        Filme filme2 = new Filme();
 
         filme1.setNome("Shrek 2");
         filme1.setDuracaoEmMinutos(98);
         filme1.setAnoDeLancamento(2004);
         filme1.setIncluidoNoPlano(true);
+
+        filme2.setNome("Bee Movie");
+        filme2.setDuracaoEmMinutos(91);
+        filme2.setAnoDeLancamento(2007);
 
         filme1.exibeFichaTecnica();
         filme1.avalia( 9);
@@ -27,5 +33,11 @@ public class Principal {
         serie1.setMinutosPorEp(45);
         serie1.exibeFichaTecnica();
         System.out.println("Duração da maratona: " + serie1.getDuracaoEmMinutos() + " min.");
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(filme1);
+        calculadora.inclui(filme2);
+        calculadora.inclui(serie1);
+        System.out.println(calculadora.getTempoTotal());
     }
 }
